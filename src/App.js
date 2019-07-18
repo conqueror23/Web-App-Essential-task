@@ -104,7 +104,7 @@ class App extends React.Component {
         </div>
         <hr></hr>
      
-        <div id='buttomPart'>
+        <div id='bottomPart'>
         {restDays}
 
         </div>
