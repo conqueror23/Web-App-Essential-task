@@ -5,27 +5,25 @@ import $ from 'jquery'
 import RestDays from './Components/RestDays';
 import Today from './Components/Today'
 import assets from './Data/assets';
-import API_KEY from './Data/Credentials'
+import API_KEY from './Data/Credentials';
+import './App.css'
+import { Col,Container,Row } from 'react-bootstrap'
 
-    // const CITIES = {
-    //   sydney: { lat: '-33.8688', lon:'151.2093' },
-    //   brisbane: { lat: '-27.4698', lon:'153.0251' },
-    //   melbourne: { lat: '-37.8136', lon:'144.9631' },
-    //   snowyMountains: {lat: '-36.5000', lon: '148.3333' },
-    // };  
+
+
+
 
 class App extends React.Component {  
   constructor(){
     super()
     this.state={
-        city:"sydney",
-        cityIndex:'0',
+        city:"Sydney",
+        cityIndex:0,
         data:[],
     }
     this.handleArrows= this.handleArrows.bind(this)
   }
   handleArrows(event){
-    const cityList =['sydney','brisbane','melbourne','snowyMountains'];
    
     let index =this.state.cityIndex;
     let newIndex;
@@ -42,19 +40,14 @@ class App extends React.Component {
     if(newIndex>3 || newIndex <0){
       newIndex= Math.abs(4)-Math.abs(newIndex)
     }
-    let cityName =cityList[newIndex];
-
-    console.log(cityName+'::::'+newIndex);
-    this.setState({city:cityName})
-    // this.setState({city:cityName,cityIndex:newIndex})
-
+    let cityName =Cities.cityList[newIndex];
+    this.setState({city:cityName,cityIndex:newIndex})
+    this.changeInfo()
 
   }
-  componentDidMount(){
-
-    console.log(this.state.city)
-
+  changeInfo(){
     let city=Cities[this.state.city];
+    console.log(this.state.city)
 
     $.ajax({
       url: 'http://api.weatherbit.io/v2.0/forecast/daily?lat='+city['lat']+'&lon='+city['lon']+'&key=' + API_KEY
@@ -65,9 +58,9 @@ class App extends React.Component {
         }
       })
       let data_final = data.map(item=>{
-        var gsday = new Date(item.valid_date);
-        const daynames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        item.valid_date =daynames[gsday.getDay()]
+        var date = new Date(item.valid_date);
+        const weekdays=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        item.valid_date =weekdays[date.getDay()]
         var code =item.weather.code
         switch(code){
           case (code<=233):
@@ -89,10 +82,13 @@ class App extends React.Component {
         return item
       })
       this.setState({data:data_final})
-      // console.log(this.state.data);
 
     });
   }
+  componentDidMount(){
+    this.changeInfo()
+  }    
+   
   render (){
     const restDays= this.state.data.map(item=> <RestDays  data={item}/>)
     if(this.state.data.length){
@@ -100,14 +96,19 @@ class App extends React.Component {
         <div className="App">
         <div id='upperFloor'>
         <a id='leftBtn' value='right' href='#' onClick={this.handleArrows}><img id='leftBtn' src={assets.leftArrow} alt='pic not found'></img></a>
-        <Today data= {this.state.data[0]} 
+        <Today data= {this.state.data[0]}
+          city ={this.state.city} 
         />
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
-
         <hr></hr>
-    
+        <Container fluid>
+        <Row fluid>
+        <Col xs={2} sm={4}>
         {restDays}
+        </Col>
+        </Row>
+        </Container>
         </div>
       );
     }
