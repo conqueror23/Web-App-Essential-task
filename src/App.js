@@ -86,6 +86,7 @@ class App extends React.Component {
     });
   }
   componentDidMount(){
+    console.log(window.innerWidth+" W - H "+window.innerHeight)
     this.changeInfo()
   }    
    
@@ -102,13 +103,11 @@ class App extends React.Component {
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
         <hr></hr>
-        <Container fluid>
-        <Row fluid>
-        <Col xs={2} sm={4}>
+     
+        <div id='buttomPart'>
         {restDays}
-        </Col>
-        </Row>
-        </Container>
+
+        </div>
         </div>
       );
     }

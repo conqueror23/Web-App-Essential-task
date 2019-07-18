@@ -6,6 +6,9 @@ import RestDays from './Components/RestDays';
 import Today from './Components/Today'
 import assets from './Data/assets';
 import API_KEY from './Data/Credentials'
+import electron from 'electron'
+
+console.log(electron)
 
     // const CITIES = {
     //   sydney: { lat: '-33.8688', lon:'151.2093' },
