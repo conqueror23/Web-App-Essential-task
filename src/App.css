@@ -40,11 +40,10 @@ html {
 }
 
 #restDays img{
-  height:29px ;
-  width:29px; 
+  height:50px ;
+  width:50px; 
 }
-
-@media only screen and (max-width: 768px) {
+@media screen and (max-width:393px) {
   html {
     height: 100%;
     background-image: url(https://bit.ly/webApp_Assets_background);
@@ -52,24 +51,129 @@ html {
     background-size: cover;
     }
     .App hr{
-      width: 60%;
+      align-self: auto;
+      width: 80%;
       margin-top: 5%;
+      margin-left: 15%;
     }
     .App img{
       height: 30%;
       width:30%;
     }
+    #upperFloor{
+      margin-right: -15%;
+    }
+    #leftBtn{
+      margin-right: -15%;
+    }
+    #rightBtn{
+      margin-left: -15%;
+    }
     #buttomPart {
+      align-content: center;
       display: inline-flex;
+      margin-left: -10%;
     }
    #buttomPart div{
-     margin-left: 15%;
+    align-content: center;
+
      display: block;
+     margin-left: 20%;
    }
 
    #buttomPart div:nth-child(4), div:nth-child(5){
-      margin-top: 40%;
-      margin-left: -50%;
+      margin-top: 45%;
+      margin-left: -55%;
+   }
+
+}
+@media  screen and (max-width: 454px) and (min-width:393px){
+  html {
+    height: 100%;
+    background-image: url(https://bit.ly/webApp_Assets_background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .App hr{
+      align-self: auto;
+      width: 80%;
+      margin-top: 5%;
+      margin-left:5%;
+    }
+    .App img{
+      height: 30%;
+      width:30%;
+    }
+    #upperFloor{
+      margin-right: 5%;
+    }
+    #leftBtn{
+      margin-right: -10%;
+    }
+    #rightBtn{
+      margin-left: -10%;
+    }
+    #buttomPart {
+      align-content: center;
+      display: inline-flex;
+      margin-left: -20%;
+    }
+   #buttomPart div{
+    align-content: center;
+
+     display: block;
+     margin-left: 20%;
+   }
+
+   #buttomPart div:nth-child(4), div:nth-child(5){
+      margin-top: 45%;
+      margin-left: -55%;
+   }
+
+}
+
+
+@media  screen and (max-width: 756px) and (min-width:454px) {
+  html {
+    height: 100%;
+    background-image: url(https://bit.ly/webApp_Assets_background);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .App hr{
+      align-self: auto;
+      width: 70%;
+      margin-top: 5%;
+      margin-left: 10%;
+    }
+    .App img{
+      height: 30%;
+      width:30%;
+    }
+    #upperFloor{
+      margin-right: -10%;
+    }
+    #leftBtn{
+      margin-right: -10%;
+    }
+    #rightBtn{
+      margin-left: -10%;
+    }
+    #buttomPart {
+      align-content: center;
+      display: inline-flex;
+      margin-left: -20%;
+    }
+   #buttomPart div{
+    align-content: center;
+
+     display: block;
+     margin-left: 20%;
+   }
+
+   #buttomPart div:nth-child(4), div:nth-child(5){
+      margin-top: 45%;
+      margin-left: -55%;
    }
 
 }
