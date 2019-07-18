@@ -26,7 +26,6 @@ html {
   display: inline-flex;
 }
 
-
 #leftBtn,#rightBtn{
   margin-top: 15%;
 
@@ -40,10 +39,12 @@ html {
 }
 
 #restDays img{
-  height:50px ;
+  height:50px;
   width:50px; 
 }
-@media screen and (max-width:393px) {
+
+
+@media only screen and (max-width:393px) {
   html {
     height: 100%;
     background-image: url(https://bit.ly/webApp_Assets_background);
