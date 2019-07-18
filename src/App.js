@@ -5,7 +5,12 @@ import $ from 'jquery'
 import RestDays from './Components/RestDays';
 import Today from './Components/Today'
 import assets from './Data/assets';
-import API_KEY from './Data/Credentials'
+import API_KEY from './Data/Credentials';
+import './App.css'
+import { Col,Container,Row } from 'react-bootstrap'
+
+
+
 
 
 class App extends React.Component {  
@@ -35,21 +40,14 @@ class App extends React.Component {
     if(newIndex>3 || newIndex <0){
       newIndex= Math.abs(4)-Math.abs(newIndex)
     }
-    // console.log(newIndex)
-
     let cityName =Cities.cityList[newIndex];
-
-    // console.log(cityName+'::::'+newIndex);
     this.setState({city:cityName,cityIndex:newIndex})
     this.changeInfo()
-    // this.setState({city:cityName,cityIndex:newIndex})
-    // console.log(this.state.city)
 
   }
   changeInfo(){
     let city=Cities[this.state.city];
     console.log(this.state.city)
-    //from the componets life circle perspective you should made all the calls and save them in the state
 
     $.ajax({
       url: 'http://api.weatherbit.io/v2.0/forecast/daily?lat='+city['lat']+'&lon='+city['lon']+'&key=' + API_KEY
@@ -60,9 +58,9 @@ class App extends React.Component {
         }
       })
       let data_final = data.map(item=>{
-        var gsday = new Date(item.valid_date);
-        const daynames=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-        item.valid_date =daynames[gsday.getDay()]
+        var date = new Date(item.valid_date);
+        const weekdays=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        item.valid_date =weekdays[date.getDay()]
         var code =item.weather.code
         switch(code){
           case (code<=233):
@@ -84,7 +82,6 @@ class App extends React.Component {
         return item
       })
       this.setState({data:data_final})
-      // console.log(this.state.data);
 
     });
   }
@@ -105,7 +102,13 @@ class App extends React.Component {
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
         <hr></hr>
+        <Container fluid>
+        <Row fluid>
+        <Col xs={2} sm={4}>
         {restDays}
+        </Col>
+        </Row>
+        </Container>
         </div>
       );
     }
