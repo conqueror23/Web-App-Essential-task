@@ -1,7 +1,6 @@
 import React from 'react'
 
 function RestDays (props){
-
     return (
         <div id='restDays'>
             <p>{props.data.valid_date}</p>
@@ -10,5 +9,4 @@ function RestDays (props){
         </div>
     )
 }
-
 export default RestDays

@@ -7,7 +7,6 @@ import Today from './Components/Today'
 import assets from './Data/assets';
 import API_KEY from './Data/Credentials';
 import './App.css'
-import { Col,Container,Row } from 'react-bootstrap'
 
 
 
@@ -47,7 +46,6 @@ class App extends React.Component {
   }
   changeInfo(){
     let city=Cities[this.state.city];
-    console.log(this.state.city)
 
     $.ajax({
       url: 'http://api.weatherbit.io/v2.0/forecast/daily?lat='+city['lat']+'&lon='+city['lon']+'&key=' + API_KEY
@@ -86,7 +84,6 @@ class App extends React.Component {
     });
   }
   componentDidMount(){
-    console.log(window.innerWidth+" W - H "+window.innerHeight)
     this.changeInfo()
   }    
    

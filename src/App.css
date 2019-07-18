@@ -160,6 +160,7 @@ html {
     #rightBtn{
       margin-left: -10%;
     }
+
     #buttomPart {
       align-content: center;
       display: inline-flex;
@@ -167,11 +168,9 @@ html {
     }
    #buttomPart div{
     align-content: center;
-
-     display: block;
-     margin-left: 20%;
+    display: block;
+    margin-left: 20%;
    }
-
    #buttomPart div:nth-child(4), div:nth-child(5){
       margin-top: 45%;
       margin-left: -55%;

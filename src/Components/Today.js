@@ -1,10 +1,6 @@
 import React from 'react'
 
-
 function Today(props){
-
-    // const dayName;
-    console.log(props)
     return (
         <div id='today'>
             <h1>{props.city}</h1>
