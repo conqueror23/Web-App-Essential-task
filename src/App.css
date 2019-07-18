@@ -1,10 +1,11 @@
-
-
 .App {
   text-align: center;
   background-image: url(https://bit.ly/webApp_Assets_background);
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  font:caption;
+  font-weight: bold;
+  color: white;
   height: 100%;
   width: 100%;
 }

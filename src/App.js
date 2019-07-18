@@ -7,25 +7,18 @@ import Today from './Components/Today'
 import assets from './Data/assets';
 import API_KEY from './Data/Credentials'
 
-    // const CITIES = {
-    //   sydney: { lat: '-33.8688', lon:'151.2093' },
-    //   brisbane: { lat: '-27.4698', lon:'153.0251' },
-    //   melbourne: { lat: '-37.8136', lon:'144.9631' },
-    //   snowyMountains: {lat: '-36.5000', lon: '148.3333' },
-    // };  
 
 class App extends React.Component {  
   constructor(){
     super()
     this.state={
-        city:"sydney",
-        cityIndex:'0',
+        city:"Sydney",
+        cityIndex:0,
         data:[],
     }
     this.handleArrows= this.handleArrows.bind(this)
   }
   handleArrows(event){
-    const cityList =['sydney','brisbane','melbourne','snowyMountains'];
    
     let index =this.state.cityIndex;
     let newIndex;
@@ -42,19 +35,21 @@ class App extends React.Component {
     if(newIndex>3 || newIndex <0){
       newIndex= Math.abs(4)-Math.abs(newIndex)
     }
-    let cityName =cityList[newIndex];
+    // console.log(newIndex)
 
-    console.log(cityName+'::::'+newIndex);
-    this.setState({city:cityName})
+    let cityName =Cities.cityList[newIndex];
+
+    // console.log(cityName+'::::'+newIndex);
+    this.setState({city:cityName,cityIndex:newIndex})
+    this.changeInfo()
     // this.setState({city:cityName,cityIndex:newIndex})
-
+    // console.log(this.state.city)
 
   }
-  componentDidMount(){
-
-    console.log(this.state.city)
-
+  changeInfo(){
     let city=Cities[this.state.city];
+    console.log(this.state.city)
+    //from the componets life circle perspective you should made all the calls and save them in the state
 
     $.ajax({
       url: 'http://api.weatherbit.io/v2.0/forecast/daily?lat='+city['lat']+'&lon='+city['lon']+'&key=' + API_KEY
@@ -93,6 +88,10 @@ class App extends React.Component {
 
     });
   }
+  componentDidMount(){
+    this.changeInfo()
+  }    
+   
   render (){
     const restDays= this.state.data.map(item=> <RestDays  data={item}/>)
     if(this.state.data.length){
@@ -100,13 +99,12 @@ class App extends React.Component {
         <div className="App">
         <div id='upperFloor'>
         <a id='leftBtn' value='right' href='#' onClick={this.handleArrows}><img id='leftBtn' src={assets.leftArrow} alt='pic not found'></img></a>
-        <Today data= {this.state.data[0]} 
+        <Today data= {this.state.data[0]}
+          city ={this.state.city} 
         />
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
-
         <hr></hr>
-    
         {restDays}
         </div>
       );
