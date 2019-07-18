@@ -70,25 +70,25 @@ html {
     #rightBtn{
       margin-left: -15%;
     }
-    #buttomPart {
+    #bottomPart {
       align-content: center;
       display: inline-flex;
       margin-left: -10%;
     }
-   #buttomPart div{
+   #bottomPart div{
     align-content: center;
 
      display: block;
      margin-left: 20%;
    }
 
-   #buttomPart div:nth-child(4), div:nth-child(5){
+   #bottomPart div:nth-child(4), div:nth-child(5){
       margin-top: 45%;
       margin-left: -55%;
    }
 
 }
-@media  screen and (max-width: 454px) and (min-width:393px){
+@media  screen and (max-width: 454px) and (min-width: 393px){
   html {
     height: 100%;
     background-image: url(https://bit.ly/webApp_Assets_background);
@@ -99,7 +99,7 @@ html {
       align-self: auto;
       width: 80%;
       margin-top: 5%;
-      margin-left:5%;
+      margin-left:10%;
     }
     .App img{
       height: 30%;
@@ -114,19 +114,19 @@ html {
     #rightBtn{
       margin-left: -10%;
     }
-    #buttomPart {
+    #bottomPart {
       align-content: center;
       display: inline-flex;
       margin-left: -20%;
     }
-   #buttomPart div{
+   #bottomPart div{
     align-content: center;
 
      display: block;
      margin-left: 20%;
    }
 
-   #buttomPart div:nth-child(4), div:nth-child(5){
+   #bottomPart div:nth-child(4), div:nth-child(5){
       margin-top: 45%;
       margin-left: -55%;
    }
@@ -134,7 +134,8 @@ html {
 }
 
 
-@media  screen and (max-width: 756px) and (min-width:454px) {
+@media screen and (max-width:734px) and (min-width :454px){
+
   html {
     height: 100%;
     background-image: url(https://bit.ly/webApp_Assets_background);
@@ -143,16 +144,16 @@ html {
     }
     .App hr{
       align-self: auto;
-      width: 70%;
+      width: 80%;
       margin-top: 5%;
-      margin-left: 10%;
+      margin-left:10%;
     }
     .App img{
       height: 30%;
       width:30%;
     }
     #upperFloor{
-      margin-right: -10%;
+      margin-right:-20%;
     }
     #leftBtn{
       margin-right: -10%;
@@ -160,18 +161,19 @@ html {
     #rightBtn{
       margin-left: -10%;
     }
-
-    #buttomPart {
+    #bottomPart {
       align-content: center;
       display: inline-flex;
-      margin-left: -20%;
+      margin-left: -10%;
     }
-   #buttomPart div{
+   #bottomPart div{
     align-content: center;
-    display: block;
-    margin-left: 20%;
+
+     display: block;
+     margin-left: 20%;
    }
-   #buttomPart div:nth-child(4), div:nth-child(5){
+
+   #bottomPart div:nth-child(4), div:nth-child(5){
       margin-top: 45%;
       margin-left: -55%;
    }

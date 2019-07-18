@@ -7,6 +7,7 @@ import Today from './Components/Today'
 import assets from './Data/assets';
 import API_KEY from './Data/Credentials';
 import './App.css'
+import {Col,Row, Container} from 'react-bootstrap'
 
 
 
@@ -100,11 +101,17 @@ class App extends React.Component {
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
         <hr></hr>
-     
-        <div id='bottomPart'>
-        {restDays}
+     <Container>
+     <Row>
+     <Col>
+     <div id='bottomPart'>
+     {restDays}
 
-        </div>
+     </div>
+     </Col>
+     </Row>
+     </Container>
+       
         </div>
       );
     }
