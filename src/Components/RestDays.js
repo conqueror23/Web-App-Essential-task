@@ -5,7 +5,7 @@ function RestDays (props){
         <div id='restDays'>
             <p>{props.data.valid_date}</p>
             <img src={props.data.iconUrl} alt='pic not found'></img>
-            <p>{props.data.max_temp}/{props.data.temp}</p>
+            <p>{props.data.max_temp}/{props.data.min_temp}</p>
         </div>
     )
 }

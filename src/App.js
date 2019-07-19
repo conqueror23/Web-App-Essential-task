@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Cities from './Data/Cities'
+import Cities from './constants/Cities'
 import $ from 'jquery'
 import RestDays from './Components/RestDays';
 import Today from './Components/Today'
-import assets from './Data/assets';
-import API_KEY from './Data/Credentials';
+import assets from './constants/assets';
+import API_KEY from './constants/Credentials';
 
 class App extends React.Component {  
   constructor(){
@@ -71,19 +71,18 @@ class App extends React.Component {
           default:
             item.iconUrl=assets.WeatherIcons.cloudy;
         }
-        item.temp = item.temp+'\xB0'
-        item.max_temp =item.max_temp+'\xB0'
+        item.temp = parseInt(item.temp)
+        item.min_temp = parseInt(item.min_temp)
+        item.max_temp =parseInt(item.max_temp)
 
         return item
       })
       this.setState({data:data_final})
-
     });
   }
   componentDidMount(){
     this.changeInfo()
   }    
-   
   render (){
     const restDays= this.state.data.map(item=> <RestDays  data={item}/>)
     if(this.state.data.length){

@@ -45,12 +45,7 @@ html {
 
 
 @media only screen and (max-width:393px) {
-  html {
-    height: 100%;
-    background-image: url(https://bit.ly/webApp_Assets_background);
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
+
     .App hr{
       align-self: auto;
       width: 80%;
@@ -89,18 +84,8 @@ html {
 
 }
 @media  screen and (max-width: 454px) and (min-width: 393px){
-  html {
-    height: 100%;
-    background-image: url(https://bit.ly/webApp_Assets_background);
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
-    .App hr{
-      align-self: auto;
-      width: 80%;
-      margin-top: 5%;
-      margin-left:10%;
-    }
+
+ 
     .App img{
       height: 30%;
       width:30%;
@@ -136,12 +121,7 @@ html {
 
 @media screen and (max-width:734px) and (min-width :454px){
 
-  html {
-    height: 100%;
-    background-image: url(https://bit.ly/webApp_Assets_background);
-    background-repeat: no-repeat;
-    background-size: cover;
-    }
+
     .App hr{
       align-self: auto;
       width: 80%;
