@@ -6,12 +6,6 @@ import RestDays from './Components/RestDays';
 import Today from './Components/Today'
 import assets from './Data/assets';
 import API_KEY from './Data/Credentials';
-import './App.css'
-import {Col,Row, Container} from 'react-bootstrap'
-
-
-
-
 
 class App extends React.Component {  
   constructor(){
@@ -47,7 +41,7 @@ class App extends React.Component {
   }
   changeInfo(){
     let city=Cities[this.state.city];
-
+    // as the 3hourly api has descripted to make the app works the same as expected i turned to use this one instead
     $.ajax({
       url: 'http://api.weatherbit.io/v2.0/forecast/daily?lat='+city['lat']+'&lon='+city['lon']+'&key=' + API_KEY
     }).then(res=>{
@@ -77,6 +71,8 @@ class App extends React.Component {
           default:
             item.iconUrl=assets.WeatherIcons.cloudy;
         }
+        item.temp = item.temp+'\xB0'
+        item.max_temp =item.max_temp+'\xB0'
 
         return item
       })
@@ -101,16 +97,10 @@ class App extends React.Component {
         <a id='rightBtn' value='left' href='#' onClick={this.handleArrows}><img id='rightBtn' src={assets.rightArrow} alt='pic not found'></img></a>
         </div>
         <hr></hr>
-     <Container>
-     <Row>
-     <Col>
      <div id='bottomPart'>
      {restDays}
 
      </div>
-     </Col>
-     </Row>
-     </Container>
        
         </div>
       );
